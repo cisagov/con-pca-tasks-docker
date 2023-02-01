@@ -1,6 +1,6 @@
 ARG VERSION=unspecified
 
-FROM python:3.10.1-alpine
+FROM alpine:3
 
 ARG VERSION
 
@@ -16,7 +16,7 @@ ARG VERSION
 # suggested that you use an email address here that is specific to the
 # person or group that maintains this repository; for example:
 # LABEL org.opencontainers.image.authors="vm-fusion-dev-group@trio.dhs.gov"
-LABEL org.opencontainers.image.authors="github@cisa.dhs.gov"
+LABEL org.opencontainers.image.authors="mostafa.abdelbaky@inl.gov"
 LABEL org.opencontainers.image.vendor="Cybersecurity and Infrastructure Security Agency"
 
 ###
@@ -53,40 +53,15 @@ RUN addgroup --system --gid ${CISA_GID} ${CISA_GROUP} \
 ENV DEPS \
     ca-certificates \
     openssl \
-    py-pip
+    wget
 RUN apk --no-cache --quiet add ${DEPS}
 
-###
-# Make sure pip and setuptools are the latest versions
-#
-# Note that we use pip --no-cache-dir to avoid writing to a local
-# cache.  This results in a smaller final image, at the cost of
-# slightly longer install times.
-###
-RUN pip install --no-cache-dir --upgrade pip setuptools
+# Install Con-PCA-Tasks binary file
+RUN wget https://github.com/cisagov/con-pca-tasks/releases/download/v0.0.1/pca-linux-amd64
+RUN mv pca-linux-amd64 /bin/pca
 
-WORKDIR ${CISA_HOME}
-
-###
-# Install Python dependencies
-#
-# Note that we use pip --no-cache-dir to avoid writing to a local
-# cache.  This results in a smaller final image, at the cost of
-# slightly longer install times.
-###
-RUN wget --output-document sourcecode.tgz \
-    https://github.com/cisagov/skeleton-python-library/archive/v${VERSION}.tar.gz \
-    && tar --extract --gzip --file sourcecode.tgz --strip-components=1 \
-    && pip install --no-cache-dir --requirement requirements.txt \
-    && ln -snf /run/secrets/quote.txt src/example/data/secret.txt \
-    && rm sourcecode.tgz
-
-###
-# Prepare to run
-###
-ENV ECHO_MESSAGE="Hello World from Dockerfile"
+RUN ["chmod", "+x", "/bin/pca"]
 USER ${CISA_USER}
 EXPOSE 8080/TCP
-VOLUME ["/var/log"]
-ENTRYPOINT ["example"]
-CMD ["--log-level", "DEBUG"]
+
+ENTRYPOINT ["/bin/pca"]
