@@ -57,7 +57,7 @@ ENV DEPS \
 RUN apk --no-cache --quiet add ${DEPS}
 
 # Install Con-PCA-Tasks binary file
-RUN wget https://github.com/cisagov/con-pca-tasks/releases/download/latest/pca-linux-amd64
+RUN wget https://github.com/cisagov/con-pca-tasks/releases/download/v0.0.1/pca-linux-amd64
 RUN mv pca-linux-amd64 /bin/pca
 
 RUN ["chmod", "+x", "/bin/pca"]
