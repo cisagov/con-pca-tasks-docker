@@ -14,7 +14,7 @@ services:
       # VERSION must be specified on the command line:
       # e.g., --build-arg VERSION=0.0.1
       context: .
-    container_name: pca-tasks
+    container_name: con-pca-tasks
     init: true
     restart: unless-stopped
     ports:

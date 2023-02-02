@@ -49,20 +49,20 @@ project as part of our cicd pipeline.
 ## Image tags ##
 
 The images of this container are tagged with [semantic
-versions](https://semver.org) of the underlying con-pca-tasks-docker project
+versions](https://semver.org) of the underlying con-pca-tasks project
 that they containerize.  It is recommended that most users use a version tag
 (e.g. `:0.0.1`).
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/con-pca-tasks-docker:1.2.3`| An exact release version. |
-|`cisagov/con-pca-tasks-docker:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/con-pca-tasks-docker:1`| The most recent release matching the major version number. |
-|`cisagov/con-pca-tasks-docker:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/con-pca-tasks-docker:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/con-pca-tasks-docker:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/con-pca-tasks:1.2.3`| An exact release version. |
+|`cisagov/con-pca-tasks:1.2`| The most recent release matching the major and minor version numbers. |
+|`cisagov/con-pca-tasks:1`| The most recent release matching the major version number. |
+|`cisagov/con-pca-tasks:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
-See the [tags tab](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags) on
+See the [tags tab](https://hub.docker.com/r/cisagov/con-pca-tasks/tags) on
 Docker Hub for a list of all the supported tags.
 
 ## Volumes ##
@@ -104,7 +104,7 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/con-pca-tasks-docker:0.0.1 \
+  --tag cisagov/con-pca-tasks:0.0.1 \
   https://github.com/cisagov/con-pca-tasks-docker.git#develop
 ```
 
@@ -136,7 +136,7 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/con-pca-tasks-docker:0.0.1 .
+      --tag cisagov/con-pca-tasks:0.0.1 .
     ```
 
 ## Contributing ##
