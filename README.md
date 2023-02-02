@@ -46,22 +46,6 @@ project as part of our cicd pipeline.
     docker compose up --detach
     ```
 
-### Docker ###
-
-1. Stop the running container:
-
-    ```console
-    docker stop <container_id>
-    ```
-
-1. Pull the new image:
-
-    ```console
-    docker pull cisagov/example:0.0.1
-    ```
-
-1. Recreate and run the container by following the [previous instructions](#running-with-docker).
-
 ## Image tags ##
 
 The images of this container are tagged with [semantic
@@ -121,7 +105,7 @@ Build the image locally using this git repository as the [build context](https:/
 docker build \
   --build-arg VERSION=0.0.1 \
   --tag cisagov/example:0.0.1 \
-  https://github.com/cisagov/example.git#develop
+  https://github.com/cisagov/con-pca-tasks-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -134,8 +118,8 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/cisagov/example.git
-    cd example
+    git clone https://github.com/cisagov/con-pca-tasks-docker.git
+    cd con-pca-tasks-docker
     ```
 
 1. Create the `Dockerfile-x` file with `buildx` platform support:
@@ -152,7 +136,7 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/example:0.0.1 .
+      --tag cisagov/con-pca-tasks-docker:0.0.1 .
     ```
 
 ## Contributing ##
