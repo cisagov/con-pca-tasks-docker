@@ -8,13 +8,14 @@ secrets:
     file: ./src/secrets/quote.txt
 
 services:
-  example:
+  con-pca-tasks:
     # Run the container normally
     build:
       # VERSION must be specified on the command line:
       # e.g., --build-arg VERSION=0.0.1
       context: .
     container_name: con-pca-tasks
+    image: cisagov/con-pca-tasks
     init: true
     restart: unless-stopped
     ports:
