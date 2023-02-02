@@ -28,6 +28,7 @@ def test_wait_for_ready(main_container):
     """Wait for container to be ready."""
     TIMEOUT = 10
     for i in range(TIMEOUT):
+        print("READY MESSAGE: ", main_container.logs().decode("utf-8"))
         if READY_MESSAGE in main_container.logs().decode("utf-8"):
             break
         time.sleep(1)
