@@ -333,7 +333,7 @@ jobs:
         run: pytest --runslow
       - name: Setup tmate debug session
         uses: mxschmitt/action-tmate@v3
-        if: env.RUN_TMATE && (success() || failure())
+        if: (github.event.inputs.remote-shell == 'true' || env.RUN_TMATE) && (success() || failure())
   build-push-all:
     # Builds the final set of images for each of the platforms listed in
     # PLATFORMS environment variable.  These images are tagged with the Docker
