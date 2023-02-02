@@ -8,7 +8,7 @@ import time
 # Third-Party Libraries
 import pytest
 
-READY_MESSAGE = "This is a debug message"
+READY_MESSAGE = "listening on port"
 SECRET_QUOTE = (
     "There are no secrets better kept than the secrets everybody guesses."  # nosec
 )
