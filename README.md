@@ -6,8 +6,8 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/example)](https://hub.docker.com/r/cisagov/example)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/example)](https://hub.docker.com/r/cisagov/example)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags)
 
 This project's purpose is to containerize [Con-PCA-Tasks](https://github.com/cisagov/con-pca-tasks)
@@ -49,21 +49,21 @@ project as part of our cicd pipeline.
 ## Image tags ##
 
 The images of this container are tagged with [semantic
-versions](https://semver.org) of the underlying example project that they
-containerize.  It is recommended that most users use a version tag (e.g.
-`:0.0.1`).
+versions](https://semver.org) of the underlying con-pca-tasks-docker project
+that they containerize.  It is recommended that most users use a version tag
+(e.g. `:0.0.1`).
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/example:1.2.3`| An exact release version. |
-|`cisagov/example:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/example:1`| The most recent release matching the major version number. |
-|`cisagov/example:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/example:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/example:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/con-pca-tasks-docker:1.2.3`| An exact release version. |
+|`cisagov/con-pca-tasks-docker:1.2`| The most recent release matching the major and minor version numbers. |
+|`cisagov/con-pca-tasks-docker:1`| The most recent release matching the major version number. |
+|`cisagov/con-pca-tasks-docker:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks-docker:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks-docker:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
-See the [tags tab](https://hub.docker.com/r/cisagov/example/tags) on Docker
-Hub for a list of all the supported tags.
+See the [tags tab](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags) on
+Docker Hub for a list of all the supported tags.
 
 ## Volumes ##
 
@@ -104,7 +104,7 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/example:0.0.1 \
+  --tag cisagov/con-pca-tasks-docker:0.0.1 \
   https://github.com/cisagov/con-pca-tasks-docker.git#develop
 ```
 
