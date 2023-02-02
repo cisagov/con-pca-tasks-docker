@@ -26,3 +26,10 @@ services:
     secrets:
       - source: quote_txt
         target: quote.txt
+
+  con-pca-tasks-version:
+    # Run the container to collect version information
+    image: cisagov/con-pca-tasks
+    init: true
+    restart: "no"
+    command: --version
