@@ -71,10 +71,13 @@ def test_log_version(version_container):
     """Verify the container outputs the correct version to the logs."""
     version_container.wait()  # make sure container exited if running test isolated
     log_output = version_container.logs().decode("utf-8").strip()
+    print("log output:", log_output)
+
     pkg_vars = {}
     with open(VERSION_FILE) as f:
         exec(f.read(), pkg_vars)  # nosec
     project_version = pkg_vars["__version__"]
+    print("project version: ", project_version)
     assert (
         log_output == project_version
     ), f"Container version output to log does not match project version file {VERSION_FILE}"
