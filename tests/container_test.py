@@ -40,10 +40,10 @@ def test_wait_for_ready(main_container):
 
 def test_wait_for_exits(main_container, version_container):
     """Wait for containers to exit."""
-    assert main_container.wait() == 0, "Container service (main) did not exit cleanly"
-    assert (
-        version_container.wait() == 0
-    ), "Container service (version) did not exit cleanly"
+    main_container.stop()
+    version_container.stop()
+    assert main_container.wait() == 143, "Container service (main) exited"
+    assert version_container.wait() == 143, "Container service (version) exited"
 
 
 def test_output(main_container):

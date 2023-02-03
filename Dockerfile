@@ -52,8 +52,10 @@ RUN addgroup --system --gid ${CISA_GID} ${CISA_GROUP} \
 ###
 ENV DEPS \
     ca-certificates \
+    libc6-compat \
     openssl \
     wget
+
 RUN apk --no-cache --quiet add ${DEPS}
 
 # Install Con-PCA-Tasks binary file
