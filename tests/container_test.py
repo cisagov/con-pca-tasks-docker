@@ -41,15 +41,15 @@ def test_wait_for_ready(main_container):
 def test_wait_for_exits(main_container, version_container):
     """Wait for containers to exit."""
     main_container.stop()
-    version_container.stop()
     assert main_container.wait() == 143, "Container service (main) exited"
-    assert version_container.wait() == 143, "Container service (version) exited"
+    assert version_container.wait() == 0, "Container service (version) exited"
 
 
 def test_output(main_container):
     """Verify the container had the correct output."""
     main_container.wait()  # make sure container exited if running test isolated
     log_output = main_container.logs().decode("utf-8")
+
     assert SECRET_QUOTE in log_output, "Secret not found in log output."
 
 
