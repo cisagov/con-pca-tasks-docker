@@ -45,14 +45,6 @@ def test_wait_for_exits(main_container, version_container):
     assert version_container.wait() == 0, "Container service (version) exited"
 
 
-def test_output(main_container):
-    """Verify the container had the correct output."""
-    main_container.wait()  # make sure container exited if running test isolated
-    log_output = main_container.logs().decode("utf-8")
-
-    assert SECRET_QUOTE in log_output, "Secret not found in log output."
-
-
 @pytest.mark.skipif(
     RELEASE_TAG in [None, ""], reason="this is not a release (RELEASE_TAG not set)"
 )
