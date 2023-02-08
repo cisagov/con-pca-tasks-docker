@@ -11,7 +11,7 @@
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags)
 
 This project's purpose is to containerize [Con-PCA-Tasks](https://github.com/cisagov/con-pca-tasks)
-project as part of our cicd pipeline.
+project as part of our CI/CD pipeline.
 
 ## Related Con-PCA Repositories ##
 
@@ -83,7 +83,7 @@ The following ports are exposed by this container:
 
 ### Required ###
 
-There are no required environment variables as of now.
+There are no required environment variables.
 
 <!--
 | Name  | Purpose | Default |
