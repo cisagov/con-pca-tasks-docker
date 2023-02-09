@@ -12,7 +12,7 @@ on:
     - cron: "0 10 * * *"  # everyday at 10am
   repository_dispatch:
     # Respond to rebuild requests. See: https://github.com/cisagov/action-apb/
-    types: [apb]
+    types: [apb, deploy]
   workflow_dispatch:
     inputs:
       remote-shell:
