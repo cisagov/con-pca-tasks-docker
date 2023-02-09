@@ -13,6 +13,9 @@ ARG VERSION
 LABEL org.opencontainers.image.authors="mostafa.abdelbaky@inl.gov"
 LABEL org.opencontainers.image.vendor="Cybersecurity and Infrastructure Security Agency"
 
+# This argument is automatically set by the --platform flag
+ARG TARGETARCH
+
 ###
 # Unprivileged user setup variables
 ###
@@ -53,8 +56,8 @@ ENV DEPS \
 RUN apk --no-cache --quiet add ${DEPS}
 
 # Install Con-PCA-Tasks binary file
-RUN wget https://github.com/cisagov/con-pca-tasks/releases/download/v0.0.1/pca-linux-amd64
-RUN mv pca-linux-amd64 /bin/pca
+RUN wget https://github.com/cisagov/con-pca-tasks/releases/download/v0.0.1/pca-linux-${TARGETARCH}
+RUN mv pca-linux-${TARGETARCH} /bin/pca
 
 RUN ["chmod", "+x", "/bin/pca"]
 USER ${CISA_USER}
