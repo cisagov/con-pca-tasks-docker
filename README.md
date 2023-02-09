@@ -18,7 +18,7 @@ project as part of our CI/CD pipeline.
 - [con-pca-api](https://github.com/cisagov/con-pca-api)
 - [con-pca-cicd](https://github.com/cisagov/con-pca-cicd)
 - [con-pca-web](https://github.com/cisagov/con-pca-web)
-- [con-pca-tasks](https://github.com/cisagov/con-pca-web)
+- [con-pca-tasks](https://github.com/cisagov/con-pca-tasks)
 
 ## Running ##
 
@@ -55,9 +55,9 @@ that they containerize.  It is recommended that most users use a version tag
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/con-pca-tasks:1.2.3`| An exact release version. |
-|`cisagov/con-pca-tasks:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/con-pca-tasks:1`| The most recent release matching the major version number. |
+|`cisagov/con-pca-tasks:0.0.1`| An exact release version. |
+|`cisagov/con-pca-tasks:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/con-pca-tasks:0`| The most recent release matching the major version number. |
 |`cisagov/con-pca-tasks:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
 |`cisagov/con-pca-tasks:nightly` | A nightly build of the `develop` branch of this repository. |
 |`cisagov/con-pca-tasks:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
@@ -75,9 +75,9 @@ Docker Hub for a list of all the supported tags.
 
 The following ports are exposed by this container:
 
-| Port | Purpose        |
-|------|----------------|
-| 8080 | Con-PCA Tasks  |
+| Port | Purpose                                             |
+|------|-----------------------------------------------------|
+| 8080 | Rest API to manage tasks and trigger sending emails |
 
 ## Environment variables ##
 
@@ -90,12 +90,6 @@ There are no required environment variables.
 |-------|---------|---------|
 | `REQUIRED_VARIABLE` | Describe its purpose. | `null` |
 -->
-
-## Secrets ##
-
-| Filename     | Purpose |
-|--------------|---------|
-| `quote.txt` | Replaces the secret stored in the library's package data. |
 
 ## Building from source ##
 
