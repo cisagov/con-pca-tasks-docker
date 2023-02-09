@@ -3,10 +3,6 @@ version: "3.7"
 
 # This Docker composition file is used to build and test the container
 
-secrets:
-  quote_txt:
-    file: ./src/secrets/quote.txt
-
 services:
   con-pca-tasks:
     # Run the container normally
@@ -23,9 +19,6 @@ services:
         published: 8080
         protocol: tcp
         mode: host
-    secrets:
-      - source: quote_txt
-        target: quote.txt
 
   con-pca-tasks-version:
     # Run the container to collect version information
