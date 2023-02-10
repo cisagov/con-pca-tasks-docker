@@ -50,7 +50,6 @@ RUN addgroup --system --gid ${CISA_GID} ${CISA_GROUP} \
 ENV DEPS \
     ca-certificates \
     gcompat \
-    libc6-compat \
     openssl \
     wget
 
