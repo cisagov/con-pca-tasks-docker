@@ -29,7 +29,7 @@ env:
   CURL_CACHE_DIR: ~/.cache/curl
   IMAGE_NAME: cisagov/con-pca-tasks
   PIP_CACHE_DIR: ~/.cache/pip
-  # Available platform options used to select the correct executable build
+  # These are the only platforms currently supported by cisagov/con-pca-tasks
   PLATFORMS: "linux/amd64,linux/arm64"
   PRE_COMMIT_CACHE_DIR: ~/.cache/pre-commit
   RUN_TMATE: ${{ secrets.RUN_TMATE }}
