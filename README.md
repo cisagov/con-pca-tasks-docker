@@ -1,4 +1,4 @@
-# con-pca-tasks-docker 💀🐳 #
+# Con-PCA Tasks Docker 🐳 #
 
 [![GitHub Build Status](https://github.com/cisagov/con-pca-tasks-docker/workflows/build/badge.svg)](https://github.com/cisagov/con-pca-tasks-docker/actions/workflows/build.yml)
 [![CodeQL](https://github.com/cisagov/con-pca-tasks-docker/workflows/CodeQL/badge.svg)](https://github.com/cisagov/con-pca-tasks-docker/actions/workflows/codeql-analysis.yml)
@@ -6,96 +6,28 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/example)](https://hub.docker.com/r/cisagov/example)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/example)](https://hub.docker.com/r/cisagov/example)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags)
 
-This is a Docker skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) GitHub Docker project
-started.  This skeleton project contains [licensing
-information](LICENSE), as well as [pre-commit hooks](https://pre-commit.com)
-and [GitHub Actions](https://github.com/features/actions) configurations
-appropriate for Docker containers and the major languages that we use.
+This project's purpose is to containerize [Con-PCA-Tasks](https://github.com/cisagov/con-pca-tasks)
+project as part of our CI/CD pipeline.
+
+## Related Con-PCA Repositories ##
+
+- [con-pca-api](https://github.com/cisagov/con-pca-api)
+- [con-pca-cicd](https://github.com/cisagov/con-pca-cicd)
+- [con-pca-web](https://github.com/cisagov/con-pca-web)
+- [con-pca-tasks](https://github.com/cisagov/con-pca-tasks)
 
 ## Running ##
 
-### Running with Docker ###
-
-To run the `cisagov/example` image via Docker:
-
-```console
-docker run cisagov/example:0.0.1
-```
-
 ### Running with Docker Compose ###
-
-1. Create a `docker-compose.yml` file similar to the one below to use [Docker Compose](https://docs.docker.com/compose/).
-
-    ```yaml
-    ---
-    version: "3.7"
-
-    services:
-      example:
-        image: cisagov/example:0.0.1
-        volumes:
-          - type: bind
-            source: <your_log_dir>
-            target: /var/log
-        environment:
-          - ECHO_MESSAGE="Hello from docker compose"
-        ports:
-          - target: 8080
-            published: 8080
-            protocol: tcp
-    ```
 
 1. Start the container and detach:
 
     ```console
     docker compose up --detach
-    ```
-
-## Using secrets with your container ##
-
-This container also supports passing sensitive values via [Docker
-secrets](https://docs.docker.com/engine/swarm/secrets/).  Passing sensitive
-values like your credentials can be more secure using secrets than using
-environment variables.  See the
-[secrets](#secrets) section below for a table of all supported secret files.
-
-1. To use secrets, create a `quote.txt` file containing the values you want set:
-
-    ```text
-    Better lock it in your pocket.
-    ```
-
-1. Then add the secret to your `docker-compose.yml` file:
-
-    ```yaml
-    ---
-    version: "3.7"
-
-    secrets:
-      quote_txt:
-        file: quote.txt
-
-    services:
-      example:
-        image: cisagov/example:0.0.1
-        volumes:
-          - type: bind
-            source: <your_log_dir>
-            target: /var/log
-        environment:
-          - ECHO_MESSAGE="Hello from docker compose"
-        ports:
-          - target: 8080
-            published: 8080
-            protocol: tcp
-        secrets:
-          - source: quote_txt
-            target: quote.txt
     ```
 
 ## Updating your container ##
@@ -114,40 +46,24 @@ environment variables.  See the
     docker compose up --detach
     ```
 
-### Docker ###
-
-1. Stop the running container:
-
-    ```console
-    docker stop <container_id>
-    ```
-
-1. Pull the new image:
-
-    ```console
-    docker pull cisagov/example:0.0.1
-    ```
-
-1. Recreate and run the container by following the [previous instructions](#running-with-docker).
-
 ## Image tags ##
 
 The images of this container are tagged with [semantic
-versions](https://semver.org) of the underlying example project that they
-containerize.  It is recommended that most users use a version tag (e.g.
-`:0.0.1`).
+versions](https://semver.org) of the underlying con-pca-tasks project
+that they containerize.  It is recommended that most users use a version tag
+(e.g. `:0.0.1`).
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/example:1.2.3`| An exact release version. |
-|`cisagov/example:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/example:1`| The most recent release matching the major version number. |
-|`cisagov/example:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
-|`cisagov/example:nightly` | A nightly build of the `develop` branch of this repository. |
-|`cisagov/example:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
+|`cisagov/con-pca-tasks:0.0.1`| An exact release version. |
+|`cisagov/con-pca-tasks:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/con-pca-tasks:0`| The most recent release matching the major version number. |
+|`cisagov/con-pca-tasks:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks:nightly` | A nightly build of the `develop` branch of this repository. |
+|`cisagov/con-pca-tasks:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
 
-See the [tags tab](https://hub.docker.com/r/cisagov/example/tags) on Docker
-Hub for a list of all the supported tags.
+See the [tags tab](https://hub.docker.com/r/cisagov/con-pca-tasks/tags) on
+Docker Hub for a list of all the supported tags.
 
 ## Volumes ##
 
@@ -159,12 +75,9 @@ Hub for a list of all the supported tags.
 
 The following ports are exposed by this container:
 
-| Port | Purpose        |
-|------|----------------|
-| 8080 | Example only; nothing is actually listening on the port |
-
-The sample [Docker composition](docker-compose.yml) publishes the
-exposed port at 8080.
+| Port | Purpose                                                    |
+|------|------------------------------------------------------------|
+| 8080 | REST API to manage tasks and trigger the sending of emails |
 
 ## Environment variables ##
 
@@ -178,18 +91,6 @@ There are no required environment variables.
 | `REQUIRED_VARIABLE` | Describe its purpose. | `null` |
 -->
 
-### Optional ###
-
-| Name  | Purpose | Default |
-|-------|---------|---------|
-| `ECHO_MESSAGE` | Sets the message echoed by this container.  | `Hello World from Dockerfile` |
-
-## Secrets ##
-
-| Filename     | Purpose |
-|--------------|---------|
-| `quote.txt` | Replaces the secret stored in the example library's package data. |
-
 ## Building from source ##
 
 Build the image locally using this git repository as the [build context](https://docs.docker.com/engine/reference/commandline/build/#git-repositories):
@@ -197,8 +98,8 @@ Build the image locally using this git repository as the [build context](https:/
 ```console
 docker build \
   --build-arg VERSION=0.0.1 \
-  --tag cisagov/example:0.0.1 \
-  https://github.com/cisagov/example.git#develop
+  --tag cisagov/con-pca-tasks:0.0.1 \
+  https://github.com/cisagov/con-pca-tasks-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -211,8 +112,8 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/cisagov/example.git
-    cd example
+    git clone https://github.com/cisagov/con-pca-tasks-docker.git
+    cd con-pca-tasks-docker
     ```
 
 1. Create the `Dockerfile-x` file with `buildx` platform support:
@@ -229,15 +130,8 @@ Docker:
       --platform linux/amd64 \
       --build-arg VERSION=0.0.1 \
       --output type=docker \
-      --tag cisagov/example:0.0.1 .
+      --tag cisagov/con-pca-tasks:0.0.1 .
     ```
-
-## New repositories from a skeleton ##
-
-Please see our [Project Setup guide](https://github.com/cisagov/development-guide/tree/develop/project_setup)
-for step-by-step instructions on how to start a new repository from
-a skeleton. This will save you time and effort when configuring a
-new repository!
 
 ## Contributing ##
 

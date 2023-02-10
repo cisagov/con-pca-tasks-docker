@@ -3,35 +3,26 @@ version: "3.7"
 
 # This Docker composition file is used to build and test the container
 
-secrets:
-  quote_txt:
-    file: ./src/secrets/quote.txt
-
 services:
-  example:
+  con-pca-tasks:
     # Run the container normally
     build:
       # VERSION must be specified on the command line:
       # e.g., --build-arg VERSION=0.0.1
       context: .
-      dockerfile: Dockerfile
-    image: cisagov/example
+    container_name: con-pca-tasks
+    image: cisagov/con-pca-tasks
     init: true
-    restart: "no"
-    environment:
-      - ECHO_MESSAGE=Hello World from docker compose!
+    restart: unless-stopped
     ports:
       - target: 8080
         published: 8080
         protocol: tcp
         mode: host
-    secrets:
-      - source: quote_txt
-        target: quote.txt
 
-  example-version:
+  con-pca-tasks-version:
     # Run the container to collect version information
-    image: cisagov/example
+    image: cisagov/con-pca-tasks
     init: true
     restart: "no"
     command: --version

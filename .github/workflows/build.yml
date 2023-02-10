@@ -12,7 +12,7 @@ on:
     - cron: "0 10 * * *"  # everyday at 10am
   repository_dispatch:
     # Respond to rebuild requests. See: https://github.com/cisagov/action-apb/
-    types: [apb]
+    types: [apb, deploy]
   workflow_dispatch:
     inputs:
       remote-shell:
@@ -27,10 +27,10 @@ on:
 env:
   BUILDX_CACHE_DIR: ~/.cache/buildx
   CURL_CACHE_DIR: ~/.cache/curl
-  IMAGE_NAME: cisagov/example
+  IMAGE_NAME: cisagov/con-pca-tasks
   PIP_CACHE_DIR: ~/.cache/pip
-  PLATFORMS: "linux/amd64,linux/arm/v6,linux/arm/v7,\
-  linux/arm64,linux/ppc64le,linux/s390x"
+  # These are the only platforms currently supported by cisagov/con-pca-tasks
+  PLATFORMS: "linux/amd64,linux/arm64"
   PRE_COMMIT_CACHE_DIR: ~/.cache/pre-commit
   RUN_TMATE: ${{ secrets.RUN_TMATE }}
 
