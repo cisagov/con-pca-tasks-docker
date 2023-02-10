@@ -75,9 +75,9 @@ Docker Hub for a list of all the supported tags.
 
 The following ports are exposed by this container:
 
-| Port | Purpose                                             |
-|------|-----------------------------------------------------|
-| 8080 | Rest API to manage tasks and trigger sending emails |
+| Port | Purpose                                                    |
+|------|------------------------------------------------------------|
+| 8080 | REST API to manage tasks and trigger the sending of emails |
 
 ## Environment variables ##
 
