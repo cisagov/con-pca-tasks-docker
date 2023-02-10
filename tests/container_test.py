@@ -9,9 +9,6 @@ import time
 import pytest
 
 READY_MESSAGE = "listening on port"
-SECRET_QUOTE = (
-    "There are no secrets better kept than the secrets everybody guesses."  # nosec
-)
 RELEASE_TAG = os.getenv("RELEASE_TAG")
 VERSION_FILE = "src/version.txt"
 
@@ -41,8 +38,10 @@ def test_wait_for_ready(main_container):
 def test_wait_for_exits(main_container, version_container):
     """Wait for containers to exit."""
     main_container.stop()
-    assert main_container.wait() == 143, "Container service (main) exited"
-    assert version_container.wait() == 0, "Container service (version) exited"
+    assert main_container.wait() == 143, "Container service (main) did not stop cleanly"
+    assert (
+        version_container.wait() == 0
+    ), "Container service (version) did not exit cleanly"
 
 
 @pytest.mark.skipif(
