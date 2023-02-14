@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - develop
+  repository_dispatch:
+    types: [deploy]
 
 jobs:
   dispatch:
