@@ -6,8 +6,8 @@
 
 ## Docker Image ##
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
-[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/con-pca-tasks-docker)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/con-pca-tasks)](https://hub.docker.com/r/cisagov/con-pca-tasks)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/con-pca-tasks)](https://hub.docker.com/r/cisagov/con-pca-tasks)
 [![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/con-pca-tasks-docker/tags)
 
 This project's purpose is to containerize [Con-PCA-Tasks](https://github.com/cisagov/con-pca-tasks)
@@ -83,13 +83,11 @@ The following ports are exposed by this container:
 
 ### Required ###
 
-There are no required environment variables.
-
-<!--
-| Name  | Purpose | Default |
-|-------|---------|---------|
-| `REQUIRED_VARIABLE` | Describe its purpose. | `null` |
--->
+| Name                    | Purpose           | Default     |
+|-------------------------|-------------------|-------------|
+| `AWS_ACCESS_KEY_ID`     | AWS Access ID     | `null`      |
+| `AWS_SECRET_ACCESS_KEY` | AWS Access Secret | `null`      |
+| `AWS_DEFAULT_REGION`    | AWS Access Key    | `us-east-1` |
 
 ## Building from source ##
 
