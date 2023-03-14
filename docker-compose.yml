@@ -20,7 +20,7 @@ services:
         protocol: tcp
         mode: host
     env_file:
-      - .env
+      - env.dist
   con-pca-mongodb:
     container_name: con-pca-mongodb
     hostname: mongodb

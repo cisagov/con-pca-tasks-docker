@@ -262,27 +262,20 @@ jobs:
           # https://github.com/opencontainers/image-spec/blob/master/annotations.md
           labels: "\
             org.opencontainers.image.created=${{
-            needs.prepare.outputs.created }}
-
+              needs.prepare.outputs.created }}
             org.opencontainers.image.description=${{
-            fromJson(needs.prepare.outputs.repometa).description }}
-
+              fromJson(needs.prepare.outputs.repometa).description }}
             org.opencontainers.image.licenses=${{
-            fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
-
+              fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
             org.opencontainers.image.revision=${{ github.sha }}
-
             org.opencontainers.image.source=${{
-            fromJson(needs.prepare.outputs.repometa).clone_url }}
-
+              fromJson(needs.prepare.outputs.repometa).clone_url }}
             org.opencontainers.image.title=${{
-            fromJson(needs.prepare.outputs.repometa).name }}
-
+              fromJson(needs.prepare.outputs.repometa).name }}
             org.opencontainers.image.url=${{
-            fromJson(needs.prepare.outputs.repometa).html_url }}
-
+              fromJson(needs.prepare.outputs.repometa).html_url }}
             org.opencontainers.image.version=${{
-            needs.prepare.outputs.source_version }}"
+              needs.prepare.outputs.source_version }}"
       - name: Compress image
         run: gzip dist/image.tar
       - name: Upload artifacts
@@ -327,8 +320,6 @@ jobs:
           path: dist
       - name: Load docker image
         run: docker load < dist/image.tar.gz
-      - name: Copy env vars
-        run: cp env.dist .env
       - name: Run tests
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
@@ -397,27 +388,20 @@ jobs:
           # https://github.com/opencontainers/image-spec/blob/master/annotations.md
           labels: "\
             org.opencontainers.image.created=${{
-            needs.prepare.outputs.created }}
-
+              needs.prepare.outputs.created }}
             org.opencontainers.image.description=${{
-            fromJson(needs.prepare.outputs.repometa).description }}
-
+              fromJson(needs.prepare.outputs.repometa).description }}
             org.opencontainers.image.licenses=${{
-            fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
-
+              fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
             org.opencontainers.image.revision=${{ github.sha }}
-
             org.opencontainers.image.source=${{
-            fromJson(needs.prepare.outputs.repometa).clone_url }}
-
+              fromJson(needs.prepare.outputs.repometa).clone_url }}
             org.opencontainers.image.title=${{
-            fromJson(needs.prepare.outputs.repometa).name }}
-
+              fromJson(needs.prepare.outputs.repometa).name }}
             org.opencontainers.image.url=${{
-            fromJson(needs.prepare.outputs.repometa).html_url }}
-
+              fromJson(needs.prepare.outputs.repometa).html_url }}
             org.opencontainers.image.version=${{
-            needs.prepare.outputs.source_version }}"
+              needs.prepare.outputs.source_version }}"
       - name: Publish README.md to Docker Hub
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
