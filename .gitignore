@@ -5,6 +5,9 @@
 ## Docker ##
 Dockerfile-x
 
+## Environment Variable ##
+.env
+
 ## Python ##
 __pycache__
 .mypy_cache

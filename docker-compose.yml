@@ -19,6 +19,19 @@ services:
         published: 8080
         protocol: tcp
         mode: host
+    env_file:
+      - .env
+  con-pca-mongodb:
+    container_name: con-pca-mongodb
+    hostname: mongodb
+    image: "mongo:6"
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongo_data:/data/db"
+    env_file:
+      - .env
 
   con-pca-tasks-version:
     # Run the container to collect version information
@@ -26,3 +39,6 @@ services:
     init: true
     restart: "no"
     command: --version
+
+volumes:
+  mongo_data:
