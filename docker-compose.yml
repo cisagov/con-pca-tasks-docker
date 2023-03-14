@@ -31,7 +31,7 @@ services:
     volumes:
       - "mongo_data:/data/db"
     env_file:
-      - .env
+      - env.dist
 
   con-pca-tasks-version:
     # Run the container to collect version information
