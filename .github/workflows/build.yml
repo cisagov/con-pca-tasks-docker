@@ -263,17 +263,24 @@ jobs:
           labels: "\
             org.opencontainers.image.created=${{
               needs.prepare.outputs.created }}
+
             org.opencontainers.image.description=${{
               fromJson(needs.prepare.outputs.repometa).description }}
+
             org.opencontainers.image.licenses=${{
               fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
+
             org.opencontainers.image.revision=${{ github.sha }}
+
             org.opencontainers.image.source=${{
               fromJson(needs.prepare.outputs.repometa).clone_url }}
+
             org.opencontainers.image.title=${{
               fromJson(needs.prepare.outputs.repometa).name }}
+
             org.opencontainers.image.url=${{
               fromJson(needs.prepare.outputs.repometa).html_url }}
+
             org.opencontainers.image.version=${{
               needs.prepare.outputs.source_version }}"
       - name: Compress image
@@ -389,17 +396,24 @@ jobs:
           labels: "\
             org.opencontainers.image.created=${{
               needs.prepare.outputs.created }}
+
             org.opencontainers.image.description=${{
               fromJson(needs.prepare.outputs.repometa).description }}
+
             org.opencontainers.image.licenses=${{
               fromJson(needs.prepare.outputs.repometa).license.spdx_id }}
+
             org.opencontainers.image.revision=${{ github.sha }}
+
             org.opencontainers.image.source=${{
               fromJson(needs.prepare.outputs.repometa).clone_url }}
+
             org.opencontainers.image.title=${{
               fromJson(needs.prepare.outputs.repometa).name }}
+
             org.opencontainers.image.url=${{
               fromJson(needs.prepare.outputs.repometa).html_url }}
+
             org.opencontainers.image.version=${{
               needs.prepare.outputs.source_version }}"
       - name: Publish README.md to Docker Hub
