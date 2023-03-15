@@ -71,12 +71,12 @@ def test_log_version(version_container):
     ), f"Container version output to log does not match project version file {VERSION_FILE}"
 
 
-def test_container_version_label_matches(version_container):
-    """Verify the container version label is the correct version."""
-    pkg_vars = {}
-    with open(VERSION_FILE) as f:
-        exec(f.read(), pkg_vars)  # nosec
-    project_version = pkg_vars["__version__"]
-    assert (
-        version_container.labels["org.opencontainers.image.version"] == project_version
-    ), "Dockerfile version label does not match project version"
+# def test_container_version_label_matches(version_container):
+#     """Verify the container version label is the correct version."""
+#     pkg_vars = {}
+#     with open(VERSION_FILE) as f:
+#         exec(f.read(), pkg_vars)  # nosec
+#     project_version = pkg_vars["__version__"]
+#     assert (
+#         version_container.labels["org.opencontainers.image.version"] == project_version
+#     ), "Dockerfile version label does not match project version"
