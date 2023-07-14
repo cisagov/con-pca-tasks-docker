@@ -1,6 +1,10 @@
 ARG VERSION=unspecified
 
+<<<<<<< HEAD
 FROM alpine:3
+=======
+FROM python:3.11.4-alpine
+>>>>>>> 8237d2703dc248b80cbac9ac6a805a08e43db3c2
 
 ARG VERSION
 
